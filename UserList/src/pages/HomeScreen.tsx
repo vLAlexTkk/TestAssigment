@@ -1,7 +1,14 @@
-// screens/HomeScreen.tsx
 import * as React from 'react';
-import {Button, View, Text, FlatList, TouchableHighlight} from 'react-native';
+import {
+  Button,
+  View,
+  Text,
+  FlatList,
+  TouchableHighlight,
+  StyleSheet,
+} from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
+
 import {RootStackParamList} from '../../App';
 import {UserDataContext} from '../context/UserDataListContext';
 import UserCard from '../components/UserCard';
@@ -14,9 +21,10 @@ function HomeScreen({navigation}: HomeScreenProps) {
     <View
       style={{
         width: '100%',
+        height: "100%",
         padding: 20,
       }}>
-      <Text>Home Screen</Text>
+      <Text style={styles.mainTextStyle}>Users List</Text>
       <FlatList
         data={usersData}
         keyExtractor={item => item.id.toString()}
@@ -40,17 +48,15 @@ function HomeScreen({navigation}: HomeScreenProps) {
           </TouchableHighlight>
         )}
       />
-      {/* <Button
-        title="Go to Details"
-        onPress={() =>
-          navigation.navigate('Details', {
-            itemId: 42,
-            otherParam: 'anything you want here',
-          })
-        }
-      /> */}
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  mainTextStyle: {
+    fontSize: 18,
+    marginBottom: 10,
+  },
+});
 
 export default HomeScreen;
