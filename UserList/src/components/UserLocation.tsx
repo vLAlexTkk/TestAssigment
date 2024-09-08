@@ -3,6 +3,8 @@ import React, {useEffect, useState} from 'react';
 import {StyleSheet,View} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 
+import {GOOGLE_MAPS_API_KEY} from '@env';
+
 interface IUserLocation {
   latitude: string;
   longtitude: string;
@@ -17,8 +19,7 @@ const UserLocation = ({latitude, longtitude}: IUserLocation) => {
   };
 
   const fetchAddress = async () => {
-    const apiKey = 'AIzaSyDN5ys8qvUdulnxJcaAs729S8YNlZ3ONAk';
-    const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${userLocation.lat},${userLocation.lng}&key=${apiKey}`;
+    const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${userLocation.lat},${userLocation.lng}&key="AIzaSyDN5ys8qvUdulnxJcaAs729S8YNlZ3ONAk"`;
 
     try {
       const response = await fetch(url);
