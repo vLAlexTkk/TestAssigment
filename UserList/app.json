@@ -1,4 +1,7 @@
 {
   "name": "UserList",
-  "displayName": "UserList"
+  "displayName": "UserList",
+  "android": {
+    "packageName": "com.userlist"
+  }
 }
